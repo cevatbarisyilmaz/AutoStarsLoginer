@@ -6,7 +6,6 @@ $mail = $_POST['mail'];
 $password = $_POST['password'];
 
 $imap_stream = imap_open("{mail.bilkent.edu.tr}INBOX", $mail, $password);
-$today = date("j F Y");
 $target_mails = imap_search($imap_stream, 'FROM "Bilkent University" SUBJECT "Secure Login Gateway E-Mail Verification Code"', SE_FREE, "UTF-8");
 
 $body = imap_body($imap_stream, $target_mails[count($target_mails) - 1], FT_PEEK);
